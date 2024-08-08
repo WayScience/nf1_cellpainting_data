@@ -68,9 +68,6 @@ ggsave(
         width = 10
     )
 
-# Display the plot in the notebook
-print(fov_chart)
-
 
 # Add genotype to data frame to label on plot
 well_flag_counts <- well_flag_counts %>%
@@ -112,9 +109,6 @@ fov_platemap <- platetools::raw_map(
     width = 6
     )
 
-# Display the plot in the notebook
-print(fov_platemap)
-
 # Replace 'path_to_qc_results' with your actual data frame name
 flagged_qc_df <- qc_df[qc_df$Image_Quality_Control_QC_Flag == 1, ]
 
@@ -135,9 +129,6 @@ ggsave(
         height = 6,
         width = 10
     )
-
-# Display the plot in the notebook
-print(site_FOV_plot)
 
 # Load the parquet file into misclassed_df
 misclassed_df <- arrow::read_parquet("./misclassified_cells.parquet")

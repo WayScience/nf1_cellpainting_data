@@ -111,6 +111,9 @@ for channel in channels:
 # Concatenate the channel data frames together for plotting
 df = pd.concat(list(all_combined_dfs.values()), ignore_index=True)
 
+# Save the image quality data
+df.to_parquet("./concat_img_quality_data.parquet")
+
 print(df.shape)
 df.head()
 
@@ -245,7 +248,7 @@ for idx, plate in enumerate(df["Metadata_Plate"].unique()):
         ax=ax,
     )
 
-    # Set vertical lines at -2.5 and -1.25
+    # Set vertical lines at thresholds above and below mean
     ax.axvline(x=threshold_value_above_mean, color="red", linestyle="--")
     ax.axvline(x=threshold_value_below_mean, color="red", linestyle="--")
 

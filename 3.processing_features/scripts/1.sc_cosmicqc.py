@@ -36,6 +36,7 @@ import yaml
 
 from cosmicqc import find_outliers
 from cytodataframe import CytoDataFrame
+from pycytominer import annotate
 
 
 # ## Define helper function
@@ -131,7 +132,63 @@ print(combined_df.shape)
 combined_df.head()
 
 
+# ## Get count of all plates without HET cells
+
 # In[5]:
+
+
+# Map plate names to their corresponding platemap CSV filenames
+platemap_files = {
+    "Plate_3": "platemap_NF1_plate3.csv",
+    "Plate_3_prime": "platemap_NF1_plate3.csv",  # Plate_3_prime uses the same platemap as Plate_3
+    "Plate_5": "platemap_NF1_plate5.csv",
+    "Plate_6": "platemap_NF1_plate6.csv",
+}
+
+# List of plate names
+plates = list(platemap_files.keys())
+
+# Path to genotype annotation directory
+genotype_annot_dir = pathlib.Path("../0.download_data/metadata")
+
+# Annotate and filter each plate, then collect all into a list
+all_annotated = []
+for plate in plates:
+    plate_df = dfs[plate]
+    genotype_annot_path = genotype_annot_dir / platemap_files[plate]
+
+    # Annotate with genotype info
+    annotated_plate_df = annotate(
+        profiles=plate_df,
+        platemap=genotype_annot_path,
+        join_on=["Metadata_well_position", "Image_Metadata_Well"],
+    )
+
+    # Remove HET rows
+    annotated_plate_df = annotated_plate_df[
+        annotated_plate_df["Metadata_genotype"] != "HET"
+    ]
+
+    all_annotated.append(annotated_plate_df)
+
+# Combine all annotated data
+total_annotated_df = pd.concat(all_annotated, ignore_index=True)
+
+# Add Image_ prefix to match outlier DataFrames
+total_annotated_df = total_annotated_df.rename(
+    columns={
+        "Metadata_Plate": "Image_Metadata_Plate",
+        "Metadata_Well": "Image_Metadata_Well",
+    }
+)
+
+# Print total number of cells (excluding HET)
+print(
+    f"Total number of cells across all plates (excluding HET): {total_annotated_df.shape[0]}"
+)
+
+
+# In[6]:
 
 
 # Define the QC features
@@ -164,7 +221,7 @@ filtered_combined_df_cdf.sample(n=2, random_state=0)
 # 
 # NOTE: Threshold was determined with trial and error to find where the cutoff for good to bad quality or mitosis-ing single-cells are.
 
-# In[6]:
+# In[7]:
 
 
 # Set outlier threshold that maximizes removing most technical outliers and minimizes good cells
@@ -199,13 +256,13 @@ print(nuclei_high_int_outliers_cdf.shape)
 nuclei_high_int_outliers_cdf.head(2)
 
 
-# In[7]:
+# In[8]:
 
 
 nuclei_high_int_outliers_cdf.sample(n=2, random_state=0)
 
 
-# In[8]:
+# In[9]:
 
 
 # Create a new column 'qc_status' in filtered_combined_df
@@ -255,7 +312,7 @@ plt.savefig(
 plt.show()
 
 
-# In[9]:
+# In[10]:
 
 
 # Print out the number of outliers across plates
@@ -270,7 +327,7 @@ for plate, count in outlier_counts.items():
     print(f"{plate}: {count} outliers ({outlier_percentages[plate]:.2f}%)")
 
 
-# In[10]:
+# In[11]:
 
 
 # Set outlier threshold that maximizes removing most technical outliers and minimizes good cells
@@ -305,13 +362,13 @@ print(blurry_nuclei_outliers_cdf.shape)
 blurry_nuclei_outliers_cdf.head(2)
 
 
-# In[11]:
+# In[12]:
 
 
 blurry_nuclei_outliers_cdf.sample(n=2, random_state=0)
 
 
-# In[12]:
+# In[13]:
 
 
 # Create a new column 'qc_status' in filtered_combined_df
@@ -361,7 +418,7 @@ plt.savefig(
 plt.show()
 
 
-# In[13]:
+# In[14]:
 
 
 # Print out the number of outliers across plates
@@ -380,7 +437,7 @@ for plate, count in outlier_counts.items():
 # 
 # NOTE: Threshold was determined with trial and error to find where the cutoff for good to bad quality single-cell are.
 
-# In[14]:
+# In[15]:
 
 
 # find irregular shaped nuclei
@@ -416,13 +473,13 @@ irregular_nuclei_outliers_cdf.sort_values(
 ).head(2)
 
 
-# In[15]:
+# In[16]:
 
 
 irregular_nuclei_outliers_cdf.sample(n=2, random_state=0)
 
 
-# In[16]:
+# In[17]:
 
 
 # Create a new column 'qc_status' in filtered_combined_df
@@ -474,7 +531,7 @@ plt.savefig(
 plt.show()
 
 
-# In[17]:
+# In[18]:
 
 
 # Print out the number of outliers across plates
@@ -489,24 +546,173 @@ for plate, count in outlier_counts.items():
     print(f"{plate}: {count} outliers ({outlier_percentages[plate]:.2f}%)")
 
 
-# In[18]:
-
-
-# Remove outliers from combined_df
-outlier_indices = nuclei_high_int_outliers.index.union(
-    irregular_nuclei_outliers.index
-).union(blurry_nuclei_outliers.index)
-dropped_outliers_combined_df = combined_df.drop(outlier_indices)
-print(dropped_outliers_combined_df.shape[0])
-
+# ### Get the count of outliers across all plates for each condition
 
 # In[19]:
 
 
+# Filtering (no changes here)
+nuclei_high_int_outliers_filtered = nuclei_high_int_outliers[
+    ~(
+        (
+            (nuclei_high_int_outliers["Image_Metadata_Plate"] == "Plate_6")
+            & (
+                nuclei_high_int_outliers["Image_Metadata_Well"].str.startswith(
+                    ("C", "F")
+                )
+            )
+        )
+        | (
+            (
+                nuclei_high_int_outliers["Image_Metadata_Plate"].isin(
+                    ["Plate_3", "Plate_3_prime", "Plate_5"]
+                )
+            )
+            & (
+                nuclei_high_int_outliers["Image_Metadata_Well"].str.endswith(
+                    ("05", "06", "07", "08")
+                )
+            )
+        )
+    )
+]
+
+blurry_nuclei_outliers_filtered = blurry_nuclei_outliers[
+    ~(
+        (
+            (blurry_nuclei_outliers["Image_Metadata_Plate"] == "Plate_6")
+            & (blurry_nuclei_outliers["Image_Metadata_Well"].str.startswith(("C", "F")))
+        )
+        | (
+            (
+                blurry_nuclei_outliers["Image_Metadata_Plate"].isin(
+                    ["Plate_3", "Plate_3_prime", "Plate_5"]
+                )
+            )
+            & (
+                blurry_nuclei_outliers["Image_Metadata_Well"].str.endswith(
+                    ("05", "06", "07", "08")
+                )
+            )
+        )
+    )
+]
+
+# Define the unique cell ID columns
+merge_cols = [
+    "Image_Metadata_Plate",
+    "Image_Metadata_Well",
+    "Image_Metadata_Site",
+    "Metadata_Nuclei_Location_Center_X",
+    "Metadata_Nuclei_Location_Center_Y",
+]
+
+# Combine both filtered outlier DataFrames and drop duplicates
+combined_outliers_filtered = pd.concat(
+    [nuclei_high_int_outliers_filtered, blurry_nuclei_outliers_filtered]
+).drop_duplicates(subset=merge_cols)
+
+# Merge with total_annotated_df to flag outliers
+is_combined_outlier = (
+    total_annotated_df.merge(
+        combined_outliers_filtered[merge_cols].assign(is_combined_outlier=True),
+        on=merge_cols,
+        how="left",
+    )["is_combined_outlier"]
+    .astype("boolean")
+    .fillna(False)
+)
+
+# Count and print
+num_failed_combined = is_combined_outlier.sum()
+percent_failed_combined = (num_failed_combined / total_annotated_df.shape[0]) * 100
+print(
+    f"Combined high intensity and blurry nuclei outliers: {num_failed_combined} cells failed ({percent_failed_combined:.2f}% failed)"
+)
+
+
+# In[20]:
+
+
+# Filter irregular nuclei outliers
+irregular_nuclei_outliers_filtered = irregular_nuclei_outliers[
+    ~(
+        (
+            (irregular_nuclei_outliers["Image_Metadata_Plate"] == "Plate_6")
+            & (
+                irregular_nuclei_outliers["Image_Metadata_Well"].str.startswith(
+                    ("C", "F")
+                )
+            )
+        )
+        | (
+            (
+                irregular_nuclei_outliers["Image_Metadata_Plate"].isin(
+                    ["Plate_3", "Plate_3_prime", "Plate_5"]
+                )
+            )
+            & (
+                irregular_nuclei_outliers["Image_Metadata_Well"].str.endswith(
+                    ("05", "06", "07", "08")
+                )
+            )
+        )
+    )
+]
+
+# Define ID columns
+merge_cols = [
+    "Image_Metadata_Plate",
+    "Image_Metadata_Well",
+    "Image_Metadata_Site",
+    "Metadata_Nuclei_Location_Center_X",
+    "Metadata_Nuclei_Location_Center_Y",
+]
+
+# Combine blurry and high intensity, drop duplicates
+previous_outliers = pd.concat(
+    [nuclei_high_int_outliers_filtered, blurry_nuclei_outliers_filtered]
+).drop_duplicates(subset=merge_cols)
+
+# Remove any overlapping cells from the irregular set
+irregular_cleaned = (
+    irregular_nuclei_outliers_filtered.merge(
+        previous_outliers[merge_cols], on=merge_cols, how="left", indicator=True
+    )
+    .query("_merge == 'left_only'")
+    .drop(columns="_merge")
+)
+
+# Then count as before
+unique_irregular_cells = (
+    total_annotated_df.merge(
+        irregular_cleaned[merge_cols].assign(is_irregular=True),
+        on=merge_cols,
+        how="left",
+    )["is_irregular"]
+    .astype("boolean")
+    .fillna(False)
+)
+
+# Print counts
+num_irregular = unique_irregular_cells.sum()
+percent_irregular = (num_irregular / total_annotated_df.shape[0]) * 100
+print(
+    f"Unique irregular nuclei outliers (excluding blurry/high intensity): {num_irregular} ({percent_irregular:.2f}%)"
+)
+
+
+# ## Save cleaned profiles (filtered to remove outliers) per plate
+
+# In[21]:
+
+
 # Collect the indices of the outliers
-outlier_indices = pd.concat(
-    [nuclei_high_int_outliers, irregular_nuclei_outliers, blurry_nuclei_outliers]
-).index
+outlier_indices = pd.Index(
+    pd.concat(
+        [nuclei_high_int_outliers, irregular_nuclei_outliers, blurry_nuclei_outliers]
+    ).index.unique()
+)
 
 # Remove rows with outlier indices from combined_df
 combined_df_cleaned = combined_df.drop(outlier_indices)
@@ -526,8 +732,9 @@ for plate in plates:
     # Calculate percentage of failed cells
     failed_percentage = (failed_cells / plate_df.shape[0]) * 100
 
-    # Print the number of failed cells and the percentage
+    # Print the number of failed cells, percentage, and remaining single cells
     print(f"{plate}: {failed_cells} cells failed ({failed_percentage:.2f}% failed)")
+    print(f"{plate}: {plate_df_cleaned.shape[0]} single cells in cleaned dataset")
 
     # Clean the plate data
     plate_df_cleaned = plate_df_cleaned.drop(
@@ -541,9 +748,51 @@ for plate in plates:
     print(plate, ":", plate_df_cleaned.shape)
 
 
+# ## Determine count of the number of outliers detected across all plates
+# 
+# This count excludes HET cells.
+
+# In[22]:
+
+
+# Define columns that uniquely identify each cell
+merge_cols = [
+    "Image_Metadata_Plate",
+    "Image_Metadata_Well",
+    "Image_Metadata_Site",
+    "Metadata_Nuclei_Location_Center_X",
+    "Metadata_Nuclei_Location_Center_Y",
+]
+
+# Combine outlier DataFrames (already have Image_ prefixes)
+combined_outliers = pd.concat(
+    [
+        nuclei_high_int_outliers_filtered,
+        irregular_nuclei_outliers_filtered,
+        blurry_nuclei_outliers_filtered,
+    ]
+)
+
+# Drop duplicates just in case (some cells may appear in more than one category)
+combined_outliers = combined_outliers.drop_duplicates(subset=merge_cols)
+
+# Merge to flag outliers in the annotated data
+is_outlier_col = total_annotated_df.merge(
+    combined_outliers[merge_cols].assign(is_outlier=True), on=merge_cols, how="left"
+)["is_outlier"].astype("boolean")
+total_annotated_df["is_outlier"] = is_outlier_col.fillna(False)
+
+# Count and percent
+num_outliers = total_annotated_df["is_outlier"].sum()
+percent_outliers = (num_outliers / total_annotated_df.shape[0]) * 100
+print(
+    f"Total outliers detected across all plates: {num_outliers} ({percent_outliers:.2f}% of all cells)"
+)
+
+
 # ## Dump the new cleaned path to the dictionary for downstream processing
 
-# In[20]:
+# In[23]:
 
 
 with open(dictionary_path, "w") as file:

@@ -551,7 +551,7 @@ for plate, count in outlier_counts.items():
 # In[19]:
 
 
-# Filtering (no changes here)
+# Filtering out the HET cells for calculation
 nuclei_high_int_outliers_filtered = nuclei_high_int_outliers[
     ~(
         (
@@ -786,13 +786,32 @@ total_annotated_df["is_outlier"] = is_outlier_col.fillna(False)
 num_outliers = total_annotated_df["is_outlier"].sum()
 percent_outliers = (num_outliers / total_annotated_df.shape[0]) * 100
 print(
-    f"Total outliers detected across all plates: {num_outliers} ({percent_outliers:.2f}% of all cells)"
+    f"Total outliers detected across all plates (total = {total_annotated_df.shape[0]}): {num_outliers} ({percent_outliers:.2f}% of all cells)"
+)
+
+
+# In[23]:
+
+
+# Filter for Plates 3, 3_prime, and 5
+plates_to_check = ["Plate_3", "Plate_3_prime", "Plate_5"]
+
+filtered_df = total_annotated_df[
+    total_annotated_df["Image_Metadata_Plate"].isin(plates_to_check)
+]
+
+# Count and percent for these plates
+num_outliers_plates_3_5 = filtered_df["is_outlier"].sum()
+percent_outliers_plates_3_5 = (num_outliers_plates_3_5 / filtered_df.shape[0]) * 100
+
+print(
+    f"Outliers detected in Plates 3, 3_prime, and 5 (total = {filtered_df.shape[0]}): {num_outliers_plates_3_5} ({percent_outliers_plates_3_5:.2f}% of these plates' cells)"
 )
 
 
 # ## Dump the new cleaned path to the dictionary for downstream processing
 
-# In[23]:
+# In[24]:
 
 
 with open(dictionary_path, "w") as file:

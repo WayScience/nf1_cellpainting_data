@@ -809,9 +809,24 @@ print(
 )
 
 
+# In[24]:
+
+
+# Filter for Plate_6
+plate_6_df = total_annotated_df[total_annotated_df["Image_Metadata_Plate"] == "Plate_6"]
+
+# Count and percent for Plate_6
+num_outliers_plate_6 = plate_6_df["is_outlier"].sum()
+percent_outliers_plate_6 = (num_outliers_plate_6 / plate_6_df.shape[0]) * 100
+
+print(
+    f"Outliers detected in Plate 6 (total = {plate_6_df.shape[0]}): {num_outliers_plate_6} ({percent_outliers_plate_6:.2f}% of Plate 6 cells)"
+)
+
+
 # ## Dump the new cleaned path to the dictionary for downstream processing
 
-# In[24]:
+# In[25]:
 
 
 with open(dictionary_path, "w") as file:

@@ -1,0 +1,125 @@
+Key,Value
+CellProfiler_Version,4.2.4
+ChannelType_OrigCY5,Grayscale
+ChannelType_OrigDAPI,Grayscale
+ChannelType_OrigGFP,Grayscale
+ChannelType_OrigRFP,Grayscale
+ImageSet_Zip_Dictionary,b'PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48T01FIHhtbG5zPSJodHRwOi8vd3d3Lm9wZW5taWNyb3Njb3B5Lm9yZy9TY2hlbWFzL09NRS8yMDE2LTA2Ij48SW1hZ2UgSUQ9Ik9yaWdEQVBJIj48UGl4ZWxzIERpbWVuc2lvbk9yZGVyPSJYWUNaVCIgSUQ9IlBpeGVsczpPcmlnREFQSSIgU2l6ZVQ9IjEiIFNpemVYPSIxIiBTaXplWT0iMSI+PFRpZmZEYXRhIEZpcnN0Qz0iMCIgRmlyc3RUPSIwIiBGaXJzdFo9IjAiIElGRD0iMCIgUGxhbmVDb3VudD0iMSI+PFVVSUQgRmlsZU5hbWU9ImZpbGU6L21lZGlhLzE4dGJkcml2ZS8xLkdpdGh1Yl9SZXBvc2l0b3JpZXMvbmYxX3NjaHdhbm5fY2VsbF9wYWludGluZ19kYXRhLzAuZG93bmxvYWRfZGF0YS9QbGF0ZV82L0IxMF8wMV8xXzEwX0RBUElfMDAxLnRpZiIvPjwvVGlmZkRhdGE+PFBsYW5lIFRoZUM9IjAiIFRoZVQ9IjAiIFRoZVo9IjAiLz48L1BpeGVscz48L0ltYWdlPjxJbWFnZSBJRD0iT3JpZ0dGUCI+PFBpeGVscyBEaW1lbnNpb25PcmRlcj0iWFlDWlQiIElEPSJQaXhlbHM6T3JpZ0dGUCIgU2l6ZVQ9IjEiIFNpemVYPSIxIiBTaXplWT0iMSI+PFRpZmZEYXRhIEZpcnN0Qz0iMCIgRmlyc3RUPSIwIiBGaXJzdFo9IjAiIElGRD0iMCIgUGxhbmVDb3VudD0iMSI+PFVVSUQgRmlsZU5hbWU9ImZpbGU6L21lZGlhLzE4dGJkcml2ZS8xLkdpdGh1Yl9SZXBvc2l0b3JpZXMvbmYxX3NjaHdhbm5fY2VsbF9wYWludGluZ19kYXRhLzAuZG93bmxvYWRfZGF0YS9QbGF0ZV82L0IxMF8wMV8yXzEwX0dGUF8wMDEudGlmIi8+PC9UaWZmRGF0YT48UGxhbmUgVGhlQz0iMCIgVGhlVD0iMCIgVGhlWj0iMCIvPjwvUGl4ZWxzPjwvSW1hZ2U+PEltYWdlIElEPSJPcmlnUkZQIj48UGl4ZWxzIERpbWVuc2lvbk9yZGVyPSJYWUNaVCIgSUQ9IlBpeGVsczpPcmlnUkZQIiBTaXplVD0iMSIgU2l6ZVg9IjEiIFNpemVZPSIxIj48VGlmZkRhdGEgRmlyc3RDPSIwIiBGaXJzdFQ9IjAiIEZpcnN0Wj0iMCIgSUZEPSIwIiBQbGFuZUNvdW50PSIxIj48VVVJRCBGaWxlTmFtZT0iZmlsZTovbWVkaWEvMTh0YmRyaXZlLzEuR2l0aHViX1JlcG9zaXRvcmllcy9uZjFfc2Nod2Fubl9jZWxsX3BhaW50aW5nX2RhdGEvMC5kb3dubG9hZF9kYXRhL1BsYXRlXzYvMTBfMDFfNF8xMF9SRlBfMDAxLnRpZiIvPjwvVGlmZkRhdGE+PFBsYW5lIFRoZUM9IjAiIFRoZVQ9IjAiIFRoZVo9IjAiLz48L1BpeGVscz48L0ltYWdlPjxJbWFnZSBJRD0iT3JpZ0NZNSI+PFBpeGVscyBEaW1lbnNpb25PcmRlcj0iWFlDWlQiIElEPSJQaXhlbHM6T3JpZ0NZNSIgU2l6ZVQ9IjEiIFNpemVYPSIxIiBTaXplWT0iMSI+PFRpZmZEYXRhIEZpcnN0Qz0iMCIgRmlyc3RUPSIwIiBGaXJzdFo9IjAiIElGRD0iMCIgUGxhbmVDb3VudD0iMSI+PFVVSUQgRmlsZU5hbWU9ImZpbGU6L21lZGlhLzE4dGJkcml2ZS8xLkdpdGh1Yl9SZXBvc2l0b3JpZXMvbmYxX3NjaHdhbm5fY2VsbF9wYWludGluZ19kYXRhLzAuZG93bmxvYWRfZGF0YS9QbGF0ZV82L1lPIiBTaXplVD0iMSIgU2l6ZVg9IjEiIFNpemVZPSIxIj48VGlmZkRhdGEgRmlyc3RDPSIwIiBGaXJzdFQ9IjAiIEZpcnN0Wj0iMCIgSUZEPSIwIiBQbGFuZUNvdW50PSIxIj48VVVJRCBGaWxlTmFtZT0iZmlsZTovbWVkaWEvMTh0YmRyaXZlLzEuR2l0aHViX1JlcG9zaXRvcmllcy9uZjFfc2Nod2Fubl9jZWxsX3BhaW50aW5nX2RhdGEvMC5kb3dubG9hZF9kYXRhL1BsYXRlXzYvQzVfMDFfMV8xMF9EQVBJXzAwMS50aWYiLz48L1RpZmZEYXRhPjxQbGFuZSBUaGVDPSIwIiBUaGVUPSIwIiBUaGVaPSIwIi8+PC9QaXhlbHM+PC9JbWFnZT48SW1hZ2UgSUQ9Ik9yaWdHRlAiPjxQaXhlbHMgRGltZW5zaW9uT3JkZXI9IlhZQ1pUIiBJRD0iUGl4ZWxzOk9yaWdHRlAiIFNpemVUPSIxIiBTaXplWD0iMSIgU2l6ZVk9IjEiPjxUaWZmRGF0YSBGaXJzdEM9IjAiIEZpcnN0VD0iMCIgRmlyc3RaPSIwIiBJRkQ9IjAiIFBsYW5lQ291bnQ9IjEiPjxVVUlEIEZpbGVOYW1lPSJmaWxlOi9tZWRpYS8xOHRiZHJpdmUvMS5HaXRodWJfUmVwb3NpdG9yaWVzL25mMV9zY2h3YW5uX2NlbGxfcGFpbnRpbmdfZGF0YS8wLmRvd25sb2FkX2RhdGEvUGxhdGVfNi9DNV8wMV8yXzEwX0dGUF8wMDEudGlmIi8+PC9UaWZmRGF0YT48UGxhbmUgVGhlQz0iMCIgVGhlVD0iMCIgVGhlWj0iMCIvPjwvUGl4ZWxzPjwvSW1hZ2U+PEltYWdlIElEPSJPcmlnUkZQIj48UGl4ZWxzIERpbWVuc2lvbk9yZGVyPSJYWUNaVCIgSUQ9IlBpeGVsczpPcmlnUkZQIiBTaXplVD0iMSIgU2l6ZVg9IjEiIFNpemVZPSIxIj48VGlmZkRhdGEgRmlyc3RDPSIwIiBGaXJzdFQ9IjAiIEZpcnN0Wj0iMCIgSUZEPSIwIiBQbGFuZUNvdW50PSIxIj48VVVJRCBGaWxlTmFtZT0iZmlsZTovbWVkaWEvMTh0YmRyaXZlLzEuR2l0aHViX1JlcG9zaXRvcmllcy9uZjFfc2Nod2Fubl9jZWxsX3BhaW50aW5nX2RhdGEvMC5kb3dubG9hZF9kYXRhL1BsYXRlXzYvQzVfMDFfNF8xMF9SRlBfMDAxLnRpZiIvPjwvVGlmZkRhdGE+PFBsYW5lIFRoZUM9IjAiIFRoZVQ9IjAiIFRoZVo9IjAiLz48L1BpeGVscz48L0ltYWdlPjxJbWFnZSBJRD0iT3JpZ0NZNSI+PFBpeGVscyBEaW1lbnNpb25PcmRlcj0iWFlDWlQiIElEPSJQaXhlbHM6T3JpZ0NZNSIgU2l6ZVQ9IjEiIFNpemVYPSIxIiBTaXplWT0iMSI+PFRpZmZEYXRhIEZpcnN0Qz0iMCIgRmlyc3RUPSIwIiBGaXJzdFo9IjAiIElGRD0iMCIgUGxhbmVDb3VudD0iMSI+PFVVSUQgRmlsZU5hbWU9ImZpbGU6L21lZGlhLzE4dGJkcml2ZS8xLkdpdGh1Yl9SZXBvc2l0b3JpZXMvbmYxX3NjaHdhbm5fY2VsbF9wYWludGluZ19kYXRhLzAuZG93bmxvYWRfZGF0YS9QbGF0ZV82LyIgU2l6ZVQ9IjEiIFNpemVYPSIxIiBTaXplWT0iMSI+PFRpZmZEYXRhIEZpcnN0Qz0iMCIgRmlyc3RUPSIwIiBGaXJzdFo9IjAiIElGRD0iMCIgUGxhbmVDb3VudD0iMSI+PFVVSUQgRmlsZU5hbWU9ImZpbGU6L21lZGlhLzE4dGJkcml2ZS8xLkdpdGh1Yl9SZXBvc2l0b3JpZXMvbmYxX3NjaHdhbm5fY2VsbF9wYWludGluZ19kYXRhLzAuZG93bmxvYWRfZGF0YS9QbGF0ZV82L0UxMF8wMV9GUCIgU2l6ZVQ9IjEiIFNpemVYPSIxIiBTaXplWT0iMSI+PFRpZmZEYXRhIEZpcnN0Qz0iMCIgRmlyc3RUPSIwIiBGaXJzdFo9IjAiIElGRD0iMCIgUGxhbmVDb3VudD0iMSI+PFVVSUQgRmlsZU5hbWU9ImZpbGU6L21lZGlhLzE4dGJkcml2ZS8xLkdpdGh1Yl9SZXBvc2l0b3JpZXMvbmYxX3NjaHdhbm5fY2VsbF9wYWludGluZ19kYXRhLzAuZG93bmxvYWRfZGF0YS9QbGF0ZV82L0UxMF8wMV8xMF94bWxyc2lvbjEuMCJlbmNvaW5nRjg/T01FbnNwOi93dy5vcG9zb3JnU2NobXMvT01FMi02Ij48REFQSU9yaWdEQVBJIiBTaXplVD0iMSIgU2l6ZVg9IjEiIFNpemVZPSIxIj48VGlmZkRhdGEgRmlyc3RDPSIwIiBGaXJzdFQ9IjAiIEZpcnN0Wj0iMCIgSUZEPSIwIiBQbGFuZUNvdW50PSIxIj48VVVJRCBGaWxlTmFtZT0iZmlsZTovbWVkaWEvMTh0YmRyaXZlLzEuR2l0aHViX1JlcG9zaXRvcmllcy9uZjFfc2Nod2Fubl9jZWxsX3BhaW50aW5nX2RhdGEvMC5kb3dubG9hZF9kYXRhL1BsYXRlXzYvRjVfMDFfMV8xMF9HRlAiPjxQaXhlbHMgRGltZW5zaW9uT3JkZXI9IlhZQ1pUIiBJRD0iUGl4ZWxzOk9yaWdHRlAiIFNpemVUPSIxIiBTaXplWD0iMSIgU2l6ZVk9IjEiPjxUaWZmRGF0YSBGaXJzdEM9IjAiIEZpcnN0VD0iMCIgRmlyc3RaPSIwIiBJRkQ9IjAiIFBsYW5lQ291bnQ9IjEiPjxVVUlEIEZpbGVOYW1lPSJmaWxlOi9tZWRpYS8xOHRiZHJpdmUvMS5HaXRodWJfUmVwb3NpdG9yaWVzL25mMV9zY2h3YW5uX2NlbGxfcGFpbnRpbmdfZGF0YS8wLmRvd25sb2FkX2RhdGEvUGxhdGVfNi9GNV8wMV9HXzAwMXRpZj48YXRQbGFuZSBUaGVDPSIwIiBUaGVUPSIwIlo9IjAiLz48L1B4PjwvbWFJbWFnZSBJRD0iUkZQPjxQaXhlbHMgc2lPcmVyVCIgSU9yaWdSRlAiIFNpemU9IjEiIFNpemVYPSIxIj0iMSI+PFRpZmZEYXRhIEZpcnN0Qz0iMCIgRmlyc3RUPSIwIiBaPSIwIkQ9IlBsYW5udD0iMVVJRCBGaW1laWxlOmRpdmUvMWl0dWJyaXNjY2VsaW5fZGF0YS9vZF9fMV9SRlBfMDAxLnRpZiIvPjwvVGlmZkRhdGE+PFBsYW5lIFRoZUM9IjAiIFRoZVQ9IjAiIFRoZVo9IjAiLz48L1BpeGVscz48L0ltYWdlPjxJbWFnZSBJRD0iT3JpZ0NZNSI+PFBpeGVscyBEaW1lbnNpb25PcmRlcj0iWFlDWlQiIElEPSJQaXhlbHM6T3JpZ0NZNSI='
+Metadata_Tags,"[""ImageNumber""]"
+Pipeline_Pipeline,"CellProfiler Pipeline: http://www.cellprofiler.org
+Version:5
+DateRevision:424
+GitHash:
+ModuleCount:6
+HasImagePlaneDetails:False
+
+Images:[module_num:1|svn_version:'Unknown'|variable_revision_number:2|show_window:False|notes:['Add the plate images to view when testing parameters. If not, make sure it is blank prior to processing the images via the notebook.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    :
+    Filter images?:Images only
+    Select the rule criteria:and (extension does isimage) (directory doesnot containregexp ""[\\\\/]\\."")
+
+Metadata:[module_num:2|svn_version:'Unknown'|variable_revision_number:6|show_window:False|notes:['There is no need to extract metadata since we are not using the GUI to processes each plate.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Extract metadata?:No
+    Metadata data type:Text
+    Metadata types:{}
+    Extraction method count:1
+    Metadata extraction method:Extract from file/folder names
+    Metadata source:Folder name
+    Regular expression to extract from file name:^(?P<Plate>.*)_(?P<Well>[A-P][0-9]{2})_s(?P<Site>[0-9])_w(?P<ChannelNumber>[0-9])
+    Regular expression to extract from folder name:(?P<Plate>localhost220512140003_KK22-05-198|localhost220513100001_KK22-05-198_FactinAdjusted|localhost230405150001)
+    Extract metadata from:All images
+    Select the filtering criteria:and (file does contain """")
+    Metadata file location:Elsewhere...|
+    Match file and image metadata:[]
+    Use case insensitive matching?:No
+    Metadata file name:None
+    Does cached metadata exist?:No
+
+NamesAndTypes:[module_num:3|svn_version:'Unknown'|variable_revision_number:8|show_window:False|notes:['Assign each image to its channel.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Assign a name to:Images matching rules
+    Select the image type:Grayscale image
+    Name to assign these images:DNA
+    Match metadata:[]
+    Image set matching method:Order
+    Set intensity range from:Image metadata
+    Assignments count:4
+    Single images count:0
+    Maximum intensity:255.0
+    Process as 3D?:No
+    Relative pixel spacing in X:1.0
+    Relative pixel spacing in Y:1.0
+    Relative pixel spacing in Z:1.0
+    Select the rule criteria:and (file does contain ""DAPI"")
+    Name to assign these images:OrigDAPI
+    Name to assign these objects:Cell
+    Select the image type:Grayscale image
+    Set intensity range from:Image metadata
+    Maximum intensity:255.0
+    Select the rule criteria:and (file does contain ""GFP"")
+    Name to assign these images:OrigGFP
+    Name to assign these objects:Nucleus
+    Select the image type:Grayscale image
+    Set intensity range from:Image metadata
+    Maximum intensity:255.0
+    Select the rule criteria:and (file does contain ""RFP"")
+    Name to assign these images:OrigRFP
+    Name to assign these objects:Cytoplasm
+    Select the image type:Grayscale image
+    Set intensity range from:Image metadata
+    Maximum intensity:255.0
+    Select the rule criteria:and (file does contain ""CY5"")
+    Name to assign these images:OrigCY5
+    Name to assign these objects:Speckle
+    Select the image type:Grayscale image
+    Set intensity range from:Image metadata
+    Maximum intensity:255.0
+
+Groups:[module_num:4|svn_version:'Unknown'|variable_revision_number:2|show_window:False|notes:['Since we are not using the GUI to processes each plate, we do NOT need to group the images by plate.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Do you want to group your images?:No
+    grouping metadata count:1
+    Metadata category:Plate
+
+MeasureImageQuality:[module_num:5|svn_version:'Unknown'|variable_revision_number:6|show_window:False|notes:['To measure image quality, we will only be using blur and saturation to determine how out of focus images are and if there are large highly saturated artifacts. Defaults are used for blur.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Calculate metrics for which images?:All loaded images
+    Image count:1
+    Scale count:1
+    Threshold count:1
+    Select the images to measure:
+    Include the image rescaling value?:Yes
+    Calculate blur metrics?:Yes
+    Spatial scale for blur measurements:20
+    Calculate saturation metrics?:Yes
+    Calculate intensity metrics?:No
+    Calculate thresholds?:No
+    Use all thresholding methods?:No
+    Select a thresholding method:Otsu
+    Typical fraction of the image covered by objects:0.1
+    Two-class or three-class thresholding?:Two classes
+    Minimize the weighted variance or the entropy?:Weighted variance
+    Assign pixels in the middle intensity class to the foreground or the background?:Foreground
+
+ExportToSpreadsheet:[module_num:6|svn_version:'Unknown'|variable_revision_number:13|show_window:False|notes:['Export all of the whole image quality metrics to a spreadsheet to load in and evaluate.']|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the column delimiter:Comma ("","")
+    Add image metadata columns to your object data file?:No
+    Add image file and folder names to your object data file?:No
+    Select the measurements to export:No
+    Calculate the per-image mean values for object measurements?:No
+    Calculate the per-image median values for object measurements?:No
+    Calculate the per-image standard deviation values for object measurements?:No
+    Output file location:Default Output Folder|
+    Create a GenePattern GCT file?:No
+    Select source of sample row name:Metadata
+    Select the image to use as the identifier:None
+    Select the metadata to use as the identifier:None
+    Export all measurement types?:Yes
+    Press button to select measurements:
+    Representation of Nan/Inf:NaN
+    Add a prefix to file names?:No
+    Filename prefix:Whole_Image_QC
+    Overwrite existing files without warning?:No
+    Data to export:Do not use
+    Combine these object measurements with those of the previous object?:No
+    File name:DATA.csv
+    Use the object name for the file name?:Yes
+"
+Run_Timestamp,2025-07-21T15:50:56.766456
